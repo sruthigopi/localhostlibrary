@@ -1,0 +1,11 @@
+.navbar-brand, .nav-link{
+    color: white;
+  }
+  button.navbar-toggler{
+    background-color: white;
+   }
+   span.navbar-toggler-icon{
+    background-color: gray;
+    padding: 5px;
+    margin: 1px;
+   }

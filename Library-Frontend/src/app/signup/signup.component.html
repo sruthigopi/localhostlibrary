@@ -1,0 +1,107 @@
+
+<div class="img">
+  
+    <img class="img-fluid" [src]="image"  >
+    <div class="form1">
+
+    <form class="form col-sm-6" #userSignup="ngForm" (ngSubmit)="signup()">
+        <h1 class="title">SIGN UP</h1>
+
+           <!-- username validation -->
+           <div class="form-group">
+          
+            <input type="text"
+            required
+            minlength="3"
+             maxlength="15" 
+             name="usename"
+             [(ngModel)]="User.username"
+             #username="ngModel"
+              class="form-control" 
+              [class.is-invalid]="username.invalid && username.touched"
+              placeholder="User Name">
+            
+              <div 
+              class="alert alert-danger"
+               *ngIf="username.touched && !username.valid">
+                  <div *ngIf="username.errors?.['required']">
+                    Name Is Required!!
+                      </div>
+                  <div *ngIf="username.errors?.['minlength']">
+                       Username Should Be Minimum Of 3 Character
+                      </div>
+                      <div *ngIf="username.errors?.['maxlength']">
+                        Username Should Be Maximum of 15 Character
+                       </div>
+                  <!-- <div *ngIf="username.errors?.['pattern']">
+                       firstname doesn't match the pattern
+                      </div> -->
+              </div>
+  
+          </div>
+        <!-- email validation  -->
+        <div class="form-group">
+            
+            <input 
+            required
+            type="email" 
+            name="email"
+            [(ngModel)]="User.email"
+            #email="ngModel"
+            class="form-control" 
+            [class.is-invalid]="email.invalid && email.touched"
+             pattern="^[a-zA-z0-9\.%_-]+@[a-zA-Z0-9%_]+\.[a-z]{2,4}(.[a-z]{2,3})?"
+            placeholder="Email Address">
+          
+            <div 
+        class="alert alert-danger"
+         *ngIf="email.touched && !email.valid">
+            <div *ngIf="email.errors?.['required']">
+                Email Is Required!!
+                </div>
+            <div *ngIf="email.errors?.['pattern']">
+                 Enter a valid email address
+                </div>
+        </div>
+          </div>
+       
+        <!-- password -->
+        <div class="form-group">
+        
+          <input 
+           required 
+           type="password"
+           name="password"
+           minlength="6"
+           [(ngModel)]="User.password"
+           #password="ngModel"
+            class="form-control" 
+            pattern="(?=^.{6,}$)(?=.*\d)(?=.*[!@#$%^&*]+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
+            [class.is-invalid]="password.invalid && password.touched"
+             placeholder="Password">
+           <div class="alert-warning" id="critiria">Password Must Be Minimum of 6 Characters.Must Contains A Lowercase, A Uppercase, A Number, A Special Character.</div>
+             <div 
+             class="alert alert-danger"
+              *ngIf="password.touched && !password.valid">
+                 <div *ngIf="password.errors?.['required']">
+                   Password Is Required!!
+                     </div>
+
+                 <div *ngIf="password.errors?.['pattern']">
+                      Enter a valid password
+                    </div>    
+             </div>
+        </div>
+  <div class="d-grid">
+            <button class="btn btn-success" [disabled]="userSignup.form.invalid">SIGNUP</button>
+            </div>
+          <br>
+          <a routerLink="/login">Already have an account? Login here</a>
+      </form>
+    </div>
+   </div>
+   <!-- <div class="card mx-5">
+    <div class="card-body">
+      This is some text within a card body.
+    </div>
+  </div> -->

@@ -1,0 +1,46 @@
+
+<app-header></app-header>
+<h1>{{title}}</h1>
+<div class="card">
+    <div class="card-body">
+        <div class="table-responsive table-bordered">
+            <table class="table table-hover">
+                <thead>
+                    <tr class="table-danger" >
+                        <th>
+                            <button class="btn btn-success"
+                            (click)=" toggleImage()" >
+                            {{showImage?'Hide':'Show'}} Image
+                            </button>
+                        </th>
+                        <th>BOOK TITLE</th>
+                        <th>AUTHOR</th>
+                        <th>GENRE</th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let book of books">
+                        <td><img  *ngIf="showImage"
+                                  [src]="book.image"
+                                 [title]="book.productName"
+                                 [style.width.px]="imageWidth"
+                                 [style.margin.px]="imageMargin"></td>
+                                 <td>{{book.bookName}}</td>
+                                 <td>{{book.authorName}}</td>
+                                 <td>{{book.genre}}</td>
+                                 <td>
+                                    <td>
+                                        <button class="btn btn-warning" (click)="editBooks(book)">UPDATE</button>
+                                    </td> 
+                                    <td>
+                                       <button class="btn btn-danger" (click)="deleteBooks(book)">DELETE</button>
+                                   </td>       
+                    </tr>
+                </tbody>
+             </table>
+             </div>  
+    </div>
+</div>

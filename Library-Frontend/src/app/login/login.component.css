@@ -1,0 +1,62 @@
+
+
+img{
+    position: relative;
+     width: 100%; 
+      min-height:100vh;
+      background-attachment: fixed;
+      background-size: cover;
+      background-repeat: no-repeat;
+ 
+   }  
+   form{
+     position: absolute;
+     top: 200px;
+     width: 400px;
+     box-sizing: border-box;
+     border-radius: 8px;
+     padding: 20px 40px;
+     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+     background-color:azure ;
+     
+   }
+   .form1{
+    
+     box-sizing: border-box;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     
+   }
+   .form{
+   
+     padding: 20px;
+   }
+   .form-group{
+     margin: 30px;
+   }
+   .title{
+     box-sizing: border-box;
+     display: flex;
+     justify-content: center;
+     color: brown;
+   }
+   a{
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+   }
+   .alert {
+     
+    display:inline-block;
+    margin-top: 10px;  
+ }
+ /* .alert div{
+ 
+  margin-top: -10px;
+ } */
+ .card{
+  position: absolute;
+  top: 100px;
+  right: 10px;
+ }

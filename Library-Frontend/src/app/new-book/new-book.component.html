@@ -1,0 +1,44 @@
+<app-header></app-header>
+
+<div>
+  
+  <img class="img-fluid" [src]="image"  > 
+       <h1> {{title}}</h1>
+    <div class="all">
+      <form (ngSubmit)=" AddBook()">
+          
+          <!-- body -->
+              <div class="card-body">
+                <div class="table-responsive table-bordered">
+                    <table class="table">
+                        <tbody>
+                           
+                          <tr>
+                              <td><label>BOOK TITLE</label></td>
+                              <td><input type="text" name="b_Name" [style.width.px]=600 [(ngModel)]="bookItem.bookName"></td>
+                            </tr>
+                            <tr>
+                              <td><label>AUTHOR</label></td>
+                              <td><input type="text" name="b_Author" [style.width.px]=600 [(ngModel)]="bookItem.authorName"></td>
+                            </tr>
+                            <tr>
+                              <td><label>GENRE</label></td>
+                              <td><input type="text" name="b_genre" [style.width.px]=600 [(ngModel)]="bookItem.genre"></td>
+                             
+                            </tr>
+                            <tr>
+                              <td><label>BOOK IMAGE</label></td>
+                              <td><input type="text" name="b_img" [style.width.px]=600 [(ngModel)]="bookItem.image"></td>
+                            </tr>
+                            <td></td>
+                            <button class="btn btn-success btn-lg" [style.width.px]=530 type="submit">ADD NEW BOOK</button>
+                        </tbody>
+                    </table>
+                </div>
+              </div>
+  
+  
+  
+      </form>
+    </div>
+ </div>

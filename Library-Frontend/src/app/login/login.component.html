@@ -1,0 +1,77 @@
+
+
+<div class="all">
+  
+    <img class="img-fluid" [src]="image"  >
+    <div class="form1">
+
+    <form class="form" #userLogin="ngForm" (ngSubmit)="loginUser()">
+        <h1 class="title">LOGIN</h1>
+        <div class="form-group">
+            
+            <input  required
+            type="email" 
+            name="email"
+            [(ngModel)]="User.useremail"
+            #email="ngModel"
+            class="form-control" 
+            [class.is-invalid]="email.invalid && email.touched"
+             pattern="^[a-zA-z0-9\.%_-]+@[a-zA-Z0-9%_]+\.[a-z]{2,4}(.[a-z]{2,3})?"
+              placeholder="Email Address">
+           
+              <div 
+              class="alert alert-danger"
+               *ngIf="email.touched && !email.valid">
+                  <div *ngIf="email.errors?.['required']">
+                    Email Is Required!!
+                      </div>
+                  <div *ngIf="email.errors?.['pattern']">
+                       Enter a valid email address
+                      </div>
+              </div>
+
+          </div>
+       
+          <div class="form-group">
+        
+            <input 
+             required 
+             type="password"
+             name="password"
+             minlength="4"
+             maxlength="15"
+             [(ngModel)]="User.userpassword"
+             #password="ngModel"
+             pattern="(?=^.{6,}$)(?=.*\d)(?=.*[!@#$%^&*]+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
+              class="form-control" 
+              [class.is-invalid]="password.invalid && password.touched"
+               placeholder="Password">
+             
+               <div 
+               class="alert alert-danger"
+                *ngIf="password.touched && !password.valid">
+                   <div *ngIf="password.errors?.['required']">
+                    Password Is Required!!
+                       </div>
+                       <div *ngIf="password.errors?.['minlength']">
+                        Password length must be Minimum Of 6 Character
+                       </div>  
+                   <div *ngIf="password.errors?.['pattern']">
+                        Enter a valid password
+                      </div>      
+               </div>
+          </div>
+       
+           
+           
+          <div class="d-grid">
+            <button class="btn btn-success" [disabled]="userLogin.form.invalid">LOGIN</button>
+            
+          </div>
+          <br>
+          <a routerLink="/signup">Not a member? Signup</a>
+      </form>
+    </div>
+   
+      
+    </div>
