@@ -24,7 +24,7 @@ export class BookService {
     }
     // get for update
     getBookUpdate(id:any){
-      return this.http.get(`${this.server_address}/`+id);
+      return this.http.get("http://localhost:3000/"+id);
     }
     // update
     editBook(book:any){

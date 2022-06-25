@@ -25,7 +25,6 @@
                     <tr *ngFor="let book of books">
                         <td><img  *ngIf="showImage"
                                   [src]="book.image"
-                                 [title]="book.productName"
                                  [style.width.px]="imageWidth"
                                  [style.margin.px]="imageMargin"></td>
                                  <td>{{book.bookName}}</td>
